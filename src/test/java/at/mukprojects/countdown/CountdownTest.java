@@ -90,6 +90,28 @@ public class CountdownTest {
 	logger.info("Test (testCountdownWithDate) has finished.");
     }
 
+    @Test
+    public void testCountdownTimeParser() {
+	logger.info("Test (testCountdownTimeParser) is starting...");
+	
+	assertTrue(timerTask.parseInteger("1000") == 1000);
+	assertTrue(timerTask.parseInteger("text") == null);
+	assertTrue(timerTask.parseInteger("1000.05") == 1000);
+	
+	logger.info("Test (testCountdownTimeParser) has finished.");
+    }
+    
+    @Test
+    public void testCountdownDateParser() {
+	logger.info("Test (testCountdownDateParser) is starting...");
+	
+	assertEquals(timerTask.parseDate("10.10.2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
+	assertTrue(timerTask.parseDate("text") == null);
+	assertEquals(timerTask.parseDate("10/10/2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
+	
+	logger.info("Test (testCountdownDateParser) has finished.");
+    }
+    
     @After
     public void tearDown() {
 	timerTask.stop();
