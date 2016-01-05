@@ -85,7 +85,7 @@ public class CountdownTest {
 
 	logger.debug("TakeTimeBefore: " + takeTimeBefore + ", TakeTimeAfter:" + takeTimeAfter + ", Difference:" + diff
 		+ ", Timer:" + timer);
-	assertTrue((timer - 2500) < diff && diff < (timer + 2500));
+	assertTrue((timer - 3000) < diff && diff < (timer + 3000));
 
 	logger.info("Test (testCountdownWithDate) has finished.");
     }
@@ -94,9 +94,9 @@ public class CountdownTest {
     public void testCountdownTimeParser() {
 	logger.info("Test (testCountdownTimeParser) is starting...");
 	
-	assertTrue(timerTask.parseInteger("1000") == 1000);
-	assertTrue(timerTask.parseInteger("text") == null);
-	assertTrue(timerTask.parseInteger("1000.05") == 1000);
+	assertTrue(CountdownTimer.parseInteger("1000") == 1000);
+	assertTrue(CountdownTimer.parseInteger("text") == null);
+	assertTrue(CountdownTimer.parseInteger("1000.05") == 1000);
 	
 	logger.info("Test (testCountdownTimeParser) has finished.");
     }
@@ -105,9 +105,9 @@ public class CountdownTest {
     public void testCountdownDateParser() {
 	logger.info("Test (testCountdownDateParser) is starting...");
 	
-	assertEquals(timerTask.parseDate("10.10.2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
-	assertTrue(timerTask.parseDate("text") == null);
-	assertEquals(timerTask.parseDate("10/10/2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
+	assertEquals(CountdownTimer.parseDate("10.10.2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
+	assertTrue(CountdownTimer.parseDate("text") == null);
+	assertEquals(CountdownTimer.parseDate("10/10/2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
 	
 	logger.info("Test (testCountdownDateParser) has finished.");
     }

@@ -155,7 +155,7 @@ public class CountdownTimer {
      *            The time as string.
      * @return The parsed time or null if the time wasn't parsable.
      */
-    public Integer parseInteger(String time) {
+    public static Integer parseInteger(String time) {
 	try {
 	    return (int) Double.parseDouble(time);
 	} catch (NumberFormatException e) {
@@ -170,7 +170,7 @@ public class CountdownTimer {
      *            The date as string.
      * @return The parsed date or null if the date wasn't parsable.
      */
-    public Date parseDate(String date) {
+    public static Date parseDate(String date) {
 	try {
 	    return parse(date);
 	} catch (ParseException e) {
@@ -178,7 +178,7 @@ public class CountdownTimer {
 	}
     }
 
-    private Date parse(String date) throws ParseException {
+    private static Date parse(String date) throws ParseException {
 	if (date != null && !date.isEmpty()) {
 	    Date output = null;
 
