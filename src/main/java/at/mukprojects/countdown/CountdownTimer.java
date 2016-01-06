@@ -39,11 +39,11 @@ public class CountdownTimer {
     /**
      * Date formats.
      */
-    private static final String[] formats = { "yyyy-MM-dd'T'HH:mm:ss'Z'", "yyyy-MM-dd'T'HH:mm:ssZ",
-	    "yyyy-MM-dd'T'HH:mm:ss", "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
-	    "yyyy-MM-dd HH:mm:ss", "MM/dd/yyyy HH:mm:ss", "MM/dd/yyyy'T'HH:mm:ss.SSS'Z'", "MM/dd/yyyy'T'HH:mm:ss.SSSZ",
-	    "MM/dd/yyyy'T'HH:mm:ss.SSS", "MM/dd/yyyy'T'HH:mm:ssZ", "MM/dd/yyyy'T'HH:mm:ss", "yyyy:MM:dd HH:mm:ss",
-	    "yyyyMMdd", "dd.MM.yyyy", "MM/dd/yyyy" };
+    private static final String[] formats = { "dd.MM.yyyy HH:mm:ss", "yyyy-MM-dd'T'HH:mm:ss'Z'",
+	    "yyyy-MM-dd'T'HH:mm:ssZ", "yyyy-MM-dd'T'HH:mm:ss", "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	    "yyyy-MM-dd'T'HH:mm:ss.SSSZ", "yyyy-MM-dd HH:mm:ss", "MM/dd/yyyy HH:mm:ss", "MM/dd/yyyy'T'HH:mm:ss.SSS'Z'",
+	    "MM/dd/yyyy'T'HH:mm:ss.SSSZ", "MM/dd/yyyy'T'HH:mm:ss.SSS", "MM/dd/yyyy'T'HH:mm:ssZ",
+	    "MM/dd/yyyy'T'HH:mm:ss", "yyyy:MM:dd HH:mm:ss", "yyyyMMdd", "dd.MM.yyyy", "MM/dd/yyyy" };
 
     private static final Logger logger = LoggerFactory.getLogger(CountdownTimer.class);
 
@@ -187,6 +187,10 @@ public class CountdownTimer {
 		try {
 		    Date parsedDate = sdf.parse(date);
 		    output = parsedDate;
+		    
+		    if (output != null) {
+			break;
+		    }
 		} catch (ParseException e) {
 		}
 	    }

@@ -106,8 +106,11 @@ public class CountdownTest {
 	logger.info("Test (testCountdownDateParser) is starting...");
 	
 	assertEquals(CountdownTimer.parseDate("10.10.2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
-	assertTrue(CountdownTimer.parseDate("text") == null);
 	assertEquals(CountdownTimer.parseDate("10/10/2015").toString(), "Sat Oct 10 00:00:00 CEST 2015");
+	
+	assertTrue(CountdownTimer.parseDate("text") == null);
+	
+	assertEquals(CountdownTimer.parseDate("10.10.2015 10:20:30").toString(), "Sat Oct 10 10:20:30 CEST 2015");
 	
 	logger.info("Test (testCountdownDateParser) has finished.");
     }
